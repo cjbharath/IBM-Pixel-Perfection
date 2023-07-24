@@ -1,0 +1,21 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: pixelperf
+   labels:
+    app: pixel
+ spec:
+   replicas: 5
+   selector:
+     matchLabels:
+       app: pixel
+   template:
+     metadata:
+       labels:
+         app: pixel
+     spec:
+       containers:
+       - name: pixelperf
+         image: uk.icr.io/pixelperf/pixelimage
+         ports:
+         - containerPort: 5000
